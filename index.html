@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        My Neighbourhood Map Project
+    </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>
+        Neighborhood Map
+      </h1>
+    </center>
+    <div class="search" id="search-section">
+        <!-- Taking input and perform binding with Knockout Js -->
+        <input id="filter-section" data-bind="textInput: search_University" type="text" />
+        <input type="button" id="filter-search" data-bind="click: SearchUniversitiesFilter" value="Check" />
+        <a href="index.html">back</a>
+    </div>
+    <!-- Main section 1- Map , 2- List -->
+    <div class="main-section" id="main-section">
+        <!-- Map -->
+        <!-- Seraching List -->
+        <div class="search-list" id="search-list">
+            <ul class="results" id="results" data-bind="foreach: List_Of_Universities">
+                <li class="university" id="university" data-bind="text: name, visible: visible, click: selectMarker">
+                </li>
+                <li style="list-style: none">
+                </li>
+            </ul>
+        </div>
+        <div class="map" id="map">
+        </div>
+    </div>
+    <!-- App Js which contains the main code -->
+    <script src='js/app.js' type="text/javascript">
+    </script>
+    <!-- Latest jQUERY library -->
+    <script src='js/jquery-3.2.1.min.js' type="text/javascript">
+    </script>
+    <!-- Latest Knockout Js Library -->
+    <script src='js/knockout-3.4.2.js' type="text/javascript">
+    </script>
+    <!-- Connect with Google Api with my API KEY -->
+    <script async defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAioDxgBzb8qk1p6dga0QGR1FSqw4tnYho&amp;callback=beginMap&amp;libraries=places" onerror="catchErrors()" type="text/javascript">
+    </script>
+</body>
+
+</html>
